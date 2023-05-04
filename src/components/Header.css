@@ -1,0 +1,22 @@
+.header{
+width: 100%;
+cursor: pointer;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    background-color: #39445a;
+    color: aliceblue;
+    font-size: 2vw;
+    box-shadow: 0px 1px 5px black;
+    z-index: 100;
+    padding-bottom: 15px;
+    padding-top: 10px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+.header_Content{
+    display: flex;
+    align-items: center;
+    
+}
