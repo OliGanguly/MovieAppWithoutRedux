@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import PaginationComp from './custompagination/PaginationComp';
 import SingleComponent from './singlecontent/SingleComponent';
 import Genres from './genres/Genres';
-
+import useGenres from "../hooks/useGenres";
 function Movies(props) {
     const[content,setContent]=useState([])
     //for pagination
@@ -12,17 +12,17 @@ function Movies(props) {
     const[noOfPages,setNoOfPages]=useState()
     const [selectedGenrus,setSeletedGenrus]=useState([]);
     const[genrus,setGenrus]=useState()
-
+   const  genredorURL = useGenres(selectedGenrus);
 
       const fetchMovies = async () => {
           const {data}  = await axios.get(
-              `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&&page=${page}`
+              `https://api.themoviedb.org/3/discover/movie?api_key=${process.env.REACT_APP_API_KEY}&page=${page}&&page=${page}&&with_genres=${genredorURL}`
           )
          
           setContent(data.results);
           setNoOfPages(data.total_pages)
         };
-        useEffect(()=>{fetchMovies()},[page])
+        useEffect(()=>{fetchMovies()},[page,genredorURL])
     return (
         <div>
         <span className='pageTitle'>Movies</span> 
