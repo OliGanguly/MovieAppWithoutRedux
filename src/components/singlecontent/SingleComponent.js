@@ -2,6 +2,7 @@ import React from 'react';
 import './singlecontent.css';
 import { img_300, unavailable } from '../../config/config';
 import { Badge } from '@mui/material';
+import ContentModal from '../modal/ContentModal';
 
 function SingleComponent({ key,
     id,
@@ -12,6 +13,7 @@ function SingleComponent({ key,
     rating_average}) {
     // console.log("props,props",props)
     return (
+   
         <div className='media'>
             <Badge badgeContent={rating_average} color={rating_average>6?'primary':'secondary'}>
             </Badge>
